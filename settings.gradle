@@ -1,0 +1,2 @@
+rootProject.name='DarotToast'
+include ':app', ':gdtoast'
