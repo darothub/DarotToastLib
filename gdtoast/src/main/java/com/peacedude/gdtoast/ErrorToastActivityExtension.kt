@@ -35,7 +35,7 @@ fun Activity.gdErrorToast(message: String, gravity: Int) {
 
     text.text = message
     with(Toast(this)) {
-        setGravity(gravity, 0, 0)
+        setGravity(gravity, 0, 50)
         duration = Toast.LENGTH_LONG
         view = layout
         show()
