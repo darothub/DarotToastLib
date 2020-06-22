@@ -13,7 +13,12 @@ import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 
-
+/**
+ * Toast error message
+ *
+ * @param message
+ * @param gravity
+ */
 fun Activity.gdErrorToast(message: String, gravity: Int) {
 
     val layout = getGdToastLayout()
@@ -37,6 +42,14 @@ fun Activity.gdErrorToast(message: String, gravity: Int) {
     }
 }
 
+/**
+ * Toast error message
+ *
+ * @param message
+ * @param gravity
+ * @param xOffset
+ * @param yOffSet
+ */
 fun Activity.gdErrorToast(message: String, gravity: Int, xOffset: Int, yOffSet: Int) {
 
     val layout = getGdToastLayout()
@@ -45,12 +58,12 @@ fun Activity.gdErrorToast(message: String, gravity: Int, xOffset: Int, yOffSet: 
     val image: ImageView = layout.findViewById(R.id.toast_icon)
     image.hide()
 
-    if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
-        text.setTextColor(resources.getColor(R.color.colorPrimary, theme))
-    } else {
-        text.setTextColor(resources.getColor(R.color.colorPrimary))
-    }
+    val gdToastDrawableBackground = getDrawable(R.drawable.gd_toast_bkgrnd)
+    gdToastDrawableBackground?.colorFilter = PorterDuffColorFilter(Color.RED, PorterDuff.Mode.SRC_IN)
+    container.background = gdToastDrawableBackground
 
+    text.setTextColor(Color.WHITE)
+    messageConstraint(text, message)
     text.text = message
     with(Toast(this)) {
         setGravity(gravity, xOffset, yOffSet)
@@ -60,20 +73,23 @@ fun Activity.gdErrorToast(message: String, gravity: Int, xOffset: Int, yOffSet: 
     }
 }
 
-fun Activity.gdErrorToast(message: String, @DrawableRes logo: Int, gravity: Int? = null) {
+fun Activity.gdErrorToast(message: String, @DrawableRes icon: Int, gravity: Int? = null) {
 
     val layout = getGdToastLayout()
     val container: ViewGroup = layout.findViewById(R.id.toast_layout_vg)
     val text: TextView = layout.findViewById(R.id.toast_text)
     val image: ImageView = layout.findViewById(R.id.toast_icon)
+    val gdToastDrawableBackground = getDrawable(R.drawable.gd_toast_bkgrnd)
+    gdToastDrawableBackground?.colorFilter = PorterDuffColorFilter(Color.RED, PorterDuff.Mode.SRC_IN)
+    container.background = gdToastDrawableBackground
+    text.setTextColor(Color.WHITE)
     if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
-        image.setImageDrawable(resources.getDrawable(logo, theme))
-        text.setTextColor(resources.getColor(R.color.colorPrimary, theme))
-    } else {
-        image.setImageDrawable(resources.getDrawable(logo))
-        text.setTextColor(resources.getColor(R.color.colorPrimary))
-    }
+        image.setImageDrawable(resources.getDrawable(icon, theme))
 
+    } else {
+        image.setImageDrawable(resources.getDrawable(icon))
+    }
+    messageConstraint(text, message)
     text.text = message
     with(Toast(this)) {
         when {
@@ -89,7 +105,7 @@ fun Activity.gdErrorToast(message: String, @DrawableRes logo: Int, gravity: Int?
 
 fun Activity.gdErrorToast(
     message: String,
-    @DrawableRes logo: Int,
+    @DrawableRes icon: Int,
     @ColorRes backgroundColor: Int,
     gravity: Int? = null
 ) {
@@ -99,15 +115,15 @@ fun Activity.gdErrorToast(
     val text: TextView = layout.findViewById(R.id.toast_text)
     val image: ImageView = layout.findViewById(R.id.toast_icon)
     if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
-        image.setImageDrawable(resources.getDrawable(logo, theme))
+        image.setImageDrawable(resources.getDrawable(icon, theme))
         container.setBackgroundColor(resources.getColor(backgroundColor, theme))
         text.setTextColor(resources.getColor(R.color.colorPrimary, theme))
     } else {
-        image.setImageDrawable(resources.getDrawable(logo))
+        image.setImageDrawable(resources.getDrawable(icon))
         text.setTextColor(resources.getColor(R.color.colorPrimary))
         container.setBackgroundColor(resources.getColor(backgroundColor))
     }
-
+    messageConstraint(text, message)
     text.text = message
     with(Toast(this)) {
         when {
@@ -123,7 +139,7 @@ fun Activity.gdErrorToast(
 
 fun Activity.gdErrorToast(
     message: String,
-    @DrawableRes logo: Int,
+    @DrawableRes icon: Int,
     backgroundColor: String,
     @ColorRes textColor: Int,
     gravity: Int,
@@ -140,14 +156,14 @@ fun Activity.gdErrorToast(
     gdToastDrawableBackground?.colorFilter = PorterDuffColorFilter(Color.parseColor(backgroundColor), PorterDuff.Mode.SRC_IN)
     container.background = gdToastDrawableBackground
     if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
-        image.setImageDrawable(resources.getDrawable(logo, theme))
+        image.setImageDrawable(resources.getDrawable(icon, theme))
 
         text.setTextColor(resources.getColor(textColor, theme))
     } else {
-        image.setImageDrawable(resources.getDrawable(logo))
+        image.setImageDrawable(resources.getDrawable(icon))
         text.setTextColor(resources.getColor(textColor))
     }
-
+    messageConstraint(text, message)
     text.text = message
     with(Toast(this)) {
         setGravity(gravity, 0, 50)
@@ -159,7 +175,7 @@ fun Activity.gdErrorToast(
 
 fun Activity.gdErrorToast(
     message: String,
-    @DrawableRes logo: Int,
+    @DrawableRes icon: Int,
     backgroundColor: String,
     @ColorRes textColor: Int,
     gravity: Int,
@@ -178,15 +194,15 @@ fun Activity.gdErrorToast(
     gdToastDrawableBackground?.colorFilter = PorterDuffColorFilter(Color.parseColor(backgroundColor), PorterDuff.Mode.SRC_IN)
 
     if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
-        image.setImageDrawable(resources.getDrawable(logo, theme))
+        image.setImageDrawable(resources.getDrawable(icon, theme))
         container.background = gdToastDrawableBackground
         text.setTextColor(resources.getColor(textColor, theme))
     } else {
-        image.setImageDrawable(resources.getDrawable(logo))
+        image.setImageDrawable(resources.getDrawable(icon))
         text.setTextColor(resources.getColor(textColor))
         container.background = gdToastDrawableBackground
     }
-
+    messageConstraint(text, message)
     text.text = message
     with(Toast(this)) {
         setGravity(gravity, x_Offset, y_OffSet)
@@ -198,7 +214,7 @@ fun Activity.gdErrorToast(
 
 fun Activity.gdErrorToast(
     message: String,
-    @DrawableRes logo: Int,
+    @DrawableRes icon: Int,
     @ColorRes backgroundColor: Int,
     @ColorRes textColor: Int,
     gravity: Int,
@@ -213,19 +229,19 @@ fun Activity.gdErrorToast(
 
 
     if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
-        image.setImageDrawable(resources.getDrawable(logo, theme))
+        image.setImageDrawable(resources.getDrawable(icon, theme))
         gdToastDrawableBackground?.colorFilter =
             PorterDuffColorFilter(resources.getColor(backgroundColor, theme), PorterDuff.Mode.SRC_IN)
         container.background = gdToastDrawableBackground
         text.setTextColor(resources.getColor(textColor, theme))
     } else {
-        image.setImageDrawable(resources.getDrawable(logo))
+        image.setImageDrawable(resources.getDrawable(icon))
         text.setTextColor(resources.getColor(textColor))
         gdToastDrawableBackground?.colorFilter =
             PorterDuffColorFilter(resources.getColor(backgroundColor), PorterDuff.Mode.SRC_IN)
         container.background = gdToastDrawableBackground
     }
-
+    messageConstraint(text, message)
     text.text = message
     with(Toast(this)) {
         setGravity(gravity, 0, 50)
@@ -236,7 +252,7 @@ fun Activity.gdErrorToast(
 }
 fun Activity.gdErrorToast(
     message: String,
-    @DrawableRes logo: Int,
+    @DrawableRes icon: Int,
     @ColorRes backgroundColor: Int,
     @ColorRes textColor: Int,
     gravity: Int,
@@ -253,19 +269,19 @@ fun Activity.gdErrorToast(
 
 
     if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
-        image.setImageDrawable(resources.getDrawable(logo, theme))
+        image.setImageDrawable(resources.getDrawable(icon, theme))
         gdToastDrawableBackground?.colorFilter =
             PorterDuffColorFilter(resources.getColor(backgroundColor, theme), PorterDuff.Mode.SRC_IN)
         container.background = gdToastDrawableBackground
         text.setTextColor(resources.getColor(textColor, theme))
     } else {
-        image.setImageDrawable(resources.getDrawable(logo))
+        image.setImageDrawable(resources.getDrawable(icon))
         text.setTextColor(resources.getColor(textColor))
         gdToastDrawableBackground?.colorFilter =
             PorterDuffColorFilter(resources.getColor(backgroundColor), PorterDuff.Mode.SRC_IN)
         container.background = gdToastDrawableBackground
     }
-
+    messageConstraint(text, message)
     text.text = message
     with(Toast(this)) {
         setGravity(gravity, x_Offset, y_OffSet)

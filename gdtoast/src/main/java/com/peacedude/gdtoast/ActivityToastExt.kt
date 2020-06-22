@@ -15,6 +15,11 @@ import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 
+/**
+ * Get toast layout by lazy
+ *
+ * @return
+ */
 fun Activity.getGdToastLayout(): View {
     val layout by lazy {
         LayoutInflater.from(this).inflate(
@@ -23,11 +28,25 @@ fun Activity.getGdToastLayout(): View {
     }
     return layout
 }
+
+/**
+ * Set message constraint(limit)
+ *
+ * @param text
+ * @param message
+ */
 fun Activity.messageConstraint(text:TextView, message: String){
     if (message.length > 22){
         text.setEms(22)
     }
 }
+
+/**
+ * Toast message
+ *
+ * @param message
+ * @param gravity
+ */
 fun Activity.gdToast(message: String, gravity: Int) {
 
     val layout = getGdToastLayout()
@@ -47,6 +66,14 @@ fun Activity.gdToast(message: String, gravity: Int) {
     }
 }
 
+/**
+ * Toast message
+ *
+ * @param message
+ * @param gravity
+ * @param xOffset
+ * @param yOffSet
+ */
 fun Activity.gdToast(message: String, gravity: Int, xOffset: Int, yOffSet: Int) {
 
     val layout = getGdToastLayout()
@@ -71,6 +98,13 @@ fun Activity.gdToast(message: String, gravity: Int, xOffset: Int, yOffSet: Int) 
     }
 }
 
+/**
+ * Toast message
+ *
+ * @param message
+ * @param icon
+ * @param gravity
+ */
 fun Activity.gdToast(message: String, @DrawableRes icon: Int, gravity: Int? = null) {
 
     val layout = getGdToastLayout()
@@ -98,6 +132,15 @@ fun Activity.gdToast(message: String, @DrawableRes icon: Int, gravity: Int? = nu
         show()
     }
 }
+
+/**
+ * Toast message
+ *
+ * @param message
+ * @param icon
+ * @param backgroundColor
+ * @param gravity
+ */
 
 fun Activity.gdToast(
     message: String,
@@ -134,6 +177,16 @@ fun Activity.gdToast(
     }
 }
 
+/**
+ * Toast message
+ *
+ * @param message
+ * @param icon
+ * @param backgroundColor
+ * @param textColor
+ * @param gravity
+ * @param toastDuration
+ */
 fun Activity.gdToast(
     message: String,
     @DrawableRes icon: Int,
@@ -172,6 +225,16 @@ fun Activity.gdToast(
     }
 }
 
+/**
+ * Toast message
+ *
+ * @param message
+ * @param icon
+ * @param backgroundColor
+ * @param textColor
+ * @param gravity
+ * @param toastDuration
+ */
 fun Activity.gdToast(
     message: String,
     @DrawableRes icon: Int,
@@ -210,6 +273,19 @@ fun Activity.gdToast(
         show()
     }
 }
+
+/**
+ * Toast message
+ *
+ * @param message
+ * @param icon
+ * @param backgroundColor
+ * @param textColor
+ * @param gravity
+ * @param x_Offset
+ * @param y_OffSet
+ * @param toastDuration
+ */
 fun Activity.gdToast(
     message: String,
     @DrawableRes icon: Int,
@@ -252,6 +328,19 @@ fun Activity.gdToast(
     }
 }
 
+/**
+ * Toast message
+ *
+ * @param message
+ * @param icon
+ * @param backgroundColor
+ * @param textColor
+ * @param gravity
+ * @param textGravity
+ * @param x_Offset
+ * @param y_OffSet
+ * @param toastDuration
+ */
 fun Activity.gdToast(
     message: String,
     @DrawableRes icon: Int,
