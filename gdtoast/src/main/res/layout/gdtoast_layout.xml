@@ -5,18 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:elevation="3dp"
-    android:padding="10dp"
-
+    android:padding="15dp"
     android:background="@drawable/gd_toast_bkgrnd"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:id="@+id/toast_icon"
-        android:layout_width="@dimen/_20sdp"
-        android:layout_height="@dimen/_20sdp"
+        android:layout_width="@dimen/_23sdp"
+        android:layout_height="@dimen/_23sdp"
         android:cropToPadding="true"
-        android:scaleType="fitCenter"
-
+        android:scaleType="centerCrop"
         android:layout_marginStart="@dimen/_6sdp"
         android:layout_marginEnd="@dimen/_6sdp"
         app:layout_constraintTop_toTopOf="parent"
@@ -29,11 +27,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dash"
-        android:textSize="@dimen/_10sdp"
+        android:textSize="@dimen/_12sdp"
         android:maxLines="2"
         app:layout_constraintStart_toEndOf="@id/toast_icon"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/toast_icon"
+        app:layout_constraintBottom_toBottomOf="@id/toast_icon"
         app:layout_constraintVertical_bias=".5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
