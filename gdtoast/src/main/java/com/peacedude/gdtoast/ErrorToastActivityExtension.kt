@@ -14,7 +14,7 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 
 /**
- * Toast error message
+ * Shows simple error toast message with
  *
  * @param message
  * @param gravity
@@ -42,7 +42,7 @@ fun Activity.gdErrorToast(message: String, gravity: Int) {
 
 
 /**
- * Toast error message
+ * Shows simple error toast message with
  *
  * @param message
  * @param gravity
@@ -69,6 +69,14 @@ fun Activity.gdErrorToast(message: String, gravity: Int, coordinates: Pair<Int, 
         show()
     }
 }
+
+/**
+ * Shows simple error toast message with
+ *
+ * @param message
+ * @param icon
+ * @param gravity
+ */
 
 fun Activity.gdErrorToast(message: String, icon: Int, gravity: Int) {
 

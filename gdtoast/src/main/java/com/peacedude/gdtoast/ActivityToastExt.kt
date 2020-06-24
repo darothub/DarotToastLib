@@ -28,11 +28,6 @@ fun Activity.changeDrawableBackgrnd(container:ViewGroup){
     val gdToastDrawableBackground = getDrawable(Darot.getGdDrawableBackgrnd)
     container.background = gdToastDrawableBackground
 }
-/**
- * Get toast layout by lazy
- *
- * @return
- */
 val Activity.getGdToastLayout: View
     get() {
         val layout by lazy {
@@ -57,7 +52,7 @@ fun Activity.messageConstraint(text: TextView, message: String) {
 }
 
 /**
- * Toast message
+ * Shows simple toast message with
  *
  * @param message
  * @param gravity
@@ -82,7 +77,7 @@ fun Activity.gdToast(message: String, gravity: Int) {
 }
 
 /**
- * Toast message
+ * Shows simple toast message with
  *
  * @param message
  * @param icon
@@ -134,7 +129,7 @@ fun Activity.gdToast(
 }
 
 /**
- * Toast message
+ * Shows simple toast message with
  *
  * @param message
  * @param gravity
@@ -167,7 +162,7 @@ fun Activity.gdToast(message: String, gravity: Int, coordinates: Pair<Int, Int>)
 }
 
 /**
- * Toast message
+ * Shows simple toast message with
  *
  * @param message
  * @param icon
@@ -200,7 +195,7 @@ fun Activity.gdToast(message: String, @DrawableRes icon: Int, gravity: Int) {
 
 
 /**
- * Toast message
+ * Shows simple toast message with
  *
  * @param message
  * @param icon
@@ -249,7 +244,7 @@ fun Activity.gdToast(
 }
 
 /**
- * Toast message
+ * Shows simple toast message with
  *
  * @param message
  * @param icon
@@ -301,7 +296,7 @@ fun Activity.gdToast(
 }
 
 /**
- * Toast message
+ * Shows simple toast message with
  *
  * @param message
  * @param icon
@@ -358,7 +353,7 @@ fun Activity.gdToast(
 }
 
 /**
- * Toast message
+ * Shows simple toast message with
  *
  * @param message
  * @param icon

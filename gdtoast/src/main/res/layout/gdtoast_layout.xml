@@ -14,7 +14,7 @@
         android:layout_width="@dimen/_23sdp"
         android:layout_height="@dimen/_23sdp"
         android:cropToPadding="true"
-        android:scaleType="centerCrop"
+        android:scaleType="centerInside"
         android:layout_marginStart="@dimen/_6sdp"
         android:layout_marginEnd="@dimen/_6sdp"
         app:layout_constraintTop_toTopOf="parent"
