@@ -4,7 +4,7 @@
 [![](https://jitpack.io/v/darothub/darotToastLib.svg)](https://jitpack.io/#darothub/darotToastLib)
 
 The library is a flexible implementation of toast message display in android application development. It allows almost full customization
-of the displaying a toast message including changing the background drawable, text color to mention few.
+of displaying a toast message including changing the background drawable, text color to mention few.
 
 ![Screenshot](app/src/main/res/mipmap-xxxhdpi/Screenshot.png)
 
@@ -15,7 +15,52 @@ of the displaying a toast message including changing the background drawable, te
  ```
  # Simple usage in an activity
  ```kotlin
-  gdToast("Hello World!", Gravity.CENTER)
+     gdToast("Hello World!", Gravity.CENTER)
+ ```
+ ## Show toast with resource drawable icon
+ ```kotlin
+     gdToast("Hello World", R.drawable.ic_android_green_24dp, Gravity.BOTTOM)
+ ```
+ ## Show toast with preferred coordinates ```Pair(x, y)```
+ ```kotlin
+     gdToast("Hello World", Gravity.CENTER, Pair(0, 20))
+ ```
+ ## Show toast with resource background color
+ ```kotlin
+     gdToast("Hello World",R.drawable.ic_android_green_24dp, R.color.newColor, Gravity.BOTTOM)
+ ```
+ ## Show toast with any drawable derived icon
+ ```kotlin
+     gdToast("Hello World", getDrawable(R.drawable.ic_android_green_24dp))
+ ```
+ ## Show toast with string background color
+ ```kotlin
+      gdToast(
+            message = "Hello World",
+            icon = R.drawable.ic_android_green_24dp,
+            backgroundColor = "#000000",
+            textColor = R.color.newColor,
+            gravity = Gravity.CENTER,
+            toastDuration = Toast.LENGTH_LONG
+        )
+ ```
+  ## Show toast with preferred position
+ ```kotlin
+     gdToast(
+            message = "Hello World",
+            icon = R.drawable.ic_android_green_24dp,
+            backgroundColor = R.color.newColor,
+            textColor = R.color.colorPrimaryDark,
+            gravity = Gravity.TOP,
+            textGravity = Gravity.START,
+            x_Offset = 10,
+            y_OffSet = 20,
+            toastDuration = Toast.LENGTH_SHORT
+        )
+ ```
+# Simple usage in a fragment
+ ```kotlin
+  requireActivity.gdToast("Hello World!", Gravity.CENTER)
  ```
 # License
 
