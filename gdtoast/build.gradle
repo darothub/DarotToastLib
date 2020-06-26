@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
 group='com.github.darothub'
-version = '1.0.0-beta01'
+version = '1.0.2'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
