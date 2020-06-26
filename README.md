@@ -58,6 +58,10 @@ of displaying a toast message including changing the background drawable, text c
         toastDuration = Toast.LENGTH_SHORT
     )
  ```
+  ## To apply a custom drawable background
+ ```kotlin
+ Darot.getGdDrawableBackgrnd = your-new-drawable-xml
+ ```
  ## Show simple error toast
 ```kotlin
  gdErrorToast("Error World", Gravity.TOP)
