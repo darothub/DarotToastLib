@@ -1,8 +1,7 @@
 # DarotToastLib
 
 [![API](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=21)
-[![Release](https://jitpack.io/v/User/Repo.svg)]
-(https://jitpack.io/#darothub/darotToastLib)
+[![](https://jitpack.io/v/darothub/darotToastLib.svg)](https://jitpack.io/#darothub/darotToastLib)
 
 The library is a flexible implementation of toast message display in android application development. It allows almost full customization
 of the displaying a toast message including changing the background drawable, text color to mention few.
