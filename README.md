@@ -10,14 +10,12 @@ of the displaying a toast message including changing the background drawable, te
 
 # Gradle
 
- ```
+ ```kotlin
   implementation 'com.github.darothub:DarotToastLib:version'
-  
  ```
  # Simple usage in an activity
- ```
+ ```kotlin
   gdToast("Hello World!", Gravity.CENTER)
-  
  ```
 # License
 
