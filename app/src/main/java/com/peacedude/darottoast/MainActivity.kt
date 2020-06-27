@@ -15,8 +15,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Darot.getGdDrawableBackgrnd = R.drawable.gd_toast_bkgrnd
 
-        gdErrorToast("Error World", Gravity.TOP)
+        gdToast(
+            "Hello World",
+            R.drawable.ic_android_green_24dp,
+            "#000000",
+            R.color.newColor,
+            Gravity.CENTER,
+            Toast.LENGTH_SHORT
+        )
     }
 }

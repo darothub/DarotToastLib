@@ -6,7 +6,7 @@
 The library is a flexible implementation of toast message display in android application development. It allows almost full customization
 of displaying a toast message including changing the background drawable, text color to mention few.
 
-![Screenshot](app/src/main/res/mipmap-xxxhdpi/Screenshot.png)
+![Screenshot](app/src/main/res/mipmap-xxxhdpi/screenshot.png)
 
 # Gradle
 
