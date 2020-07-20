@@ -7,7 +7,15 @@ The library is a flexible implementation of toast message display in android app
 of displaying a toast message including changing the background drawable, text color to mention few.
 
 ![Screenshot](app/src/main/res/mipmap-xxxhdpi/Screenshot.png)
-
+#Add the JitPack repository to your build file(project)
+ ```
+ 	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+ ```
 # Gradle
 
  ```kotlin
