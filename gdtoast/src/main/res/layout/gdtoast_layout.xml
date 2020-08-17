@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:elevation="3dp"
-    android:padding="15dp"
+    android:padding="@dimen/_5sdp"
+    android:layout_margin="@dimen/_10sdp"
     android:background="@drawable/gd_toast_bkgrnd"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -27,8 +28,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dash"
-        android:textSize="@dimen/_12sdp"
-        android:maxLines="2"
+        android:textSize="@dimen/_10sdp"
+        android:maxLines="4"
         app:layout_constraintStart_toEndOf="@id/toast_icon"
         app:layout_constraintTop_toTopOf="@id/toast_icon"
         app:layout_constraintBottom_toBottomOf="@id/toast_icon"
@@ -36,8 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         android:gravity="center"
-        android:layout_marginStart="@dimen/_6sdp"
-        android:layout_marginEnd="@dimen/_6sdp"
+        android:layout_marginStart="@dimen/_3sdp"
 
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

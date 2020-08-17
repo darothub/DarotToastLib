@@ -87,9 +87,10 @@ fun Activity.gdErrorToast(message: String, icon: Int, gravity: Int) {
     val gdToastDrawableBackground = getDrawable(Darot.getGdDrawableBackgrnd)
     gdToastDrawableBackground?.colorFilter = PorterDuffColorFilter(Color.RED, PorterDuff.Mode.SRC_IN)
     container.background = gdToastDrawableBackground
+    image.setImageDrawable(getDrawable(icon))
     text.setTextColor(Color.WHITE)
     if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {
-        image.setImageDrawable(resources.getDrawable(icon, theme))
+
     } else {
         image.setImageDrawable(resources.getDrawable(icon))
     }
