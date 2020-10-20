@@ -7,6 +7,7 @@ import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.graphics.drawable.Drawable
 import android.os.Build
+import android.os.CountDownTimer
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -193,7 +194,7 @@ fun Activity.gdToast(
 ) {
 
     val layout = getGdToastLayout
-     val gdToastDrawableBackground = getDrawable(Darot.getGdDrawableBackgrnd)
+    val gdToastDrawableBackground = getDrawable(Darot.getGdDrawableBackgrnd)
     val container: ViewGroup = layout.findViewById(R.id.toast_layout_vg)
     val text: TextView = layout.findViewById(R.id.toast_text)
     val image: ImageView = layout.findViewById(R.id.toast_icon)
@@ -206,6 +207,28 @@ fun Activity.gdToast(
     text.setTextColor(ContextCompat.getColor(this, textColor))
     messageConstraint(text, message)
     text.text = message
+
+    if (toastDuration != Toast.LENGTH_LONG || toastDuration != Toast.LENGTH_SHORT) {
+        val toastCountDown = object : CountDownTimer(toastDuration.toLong(), 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                initToast(gravity, toastDuration, layout)
+            }
+
+            override fun onFinish() {}
+        }
+
+        initToast(gravity, toastDuration, layout)
+        toastCountDown.start()
+    }else{
+        initToast(gravity, toastDuration, layout)
+    }
+}
+
+private fun Activity.initToast(
+    gravity: Int,
+    toastDuration: Int,
+    layout: View
+) {
     with(Toast(this)) {
         setGravity(gravity, 0, 50)
         duration = toastDuration
@@ -213,6 +236,7 @@ fun Activity.gdToast(
         show()
     }
 }
+
 
 /**
  * Shows simple toast message with
@@ -249,11 +273,19 @@ fun Activity.gdToast(
     text.setTextColor(ContextCompat.getColor(this, textColor))
     messageConstraint(text, message)
     text.text = message
-    with(Toast(this)) {
-        setGravity(gravity, 0, 50)
-        duration = toastDuration
-        view = layout
-        show()
+    if (toastDuration != Toast.LENGTH_LONG || toastDuration != Toast.LENGTH_SHORT) {
+        val toastCountDown = object : CountDownTimer(toastDuration.toLong(), 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                initToast(gravity, toastDuration, layout)
+            }
+
+            override fun onFinish() {}
+        }
+
+        initToast(gravity, toastDuration, layout)
+        toastCountDown.start()
+    }else{
+        initToast(gravity, toastDuration, layout)
     }
 }
 
@@ -296,11 +328,20 @@ fun Activity.gdToast(
     text.setTextColor(ContextCompat.getColor(this, textColor))
     messageConstraint(text, message)
     text.text = message
-    with(Toast(this)) {
-        setGravity(gravity, x_Offset, y_OffSet)
-        duration = toastDuration
-        view = layout
-        show()
+
+    if (toastDuration != Toast.LENGTH_LONG || toastDuration != Toast.LENGTH_SHORT) {
+        val toastCountDown = object : CountDownTimer(toastDuration.toLong(), 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                initToast(gravity, toastDuration, layout)
+            }
+
+            override fun onFinish() {}
+        }
+
+        initToast(gravity, toastDuration, layout)
+        toastCountDown.start()
+    }else{
+        initToast(gravity, toastDuration, layout)
     }
 }
 
@@ -350,11 +391,20 @@ fun Activity.gdToast(
     text.setTextColor(ContextCompat.getColor(this, textColor))
     messageConstraint(text, message)
     text.text = message
-    with(Toast(this)) {
-        setGravity(gravity, x_Offset, y_OffSet)
-        duration = toastDuration
-        view = layout
-        show()
+
+    if (toastDuration != Toast.LENGTH_LONG || toastDuration != Toast.LENGTH_SHORT) {
+        val toastCountDown = object : CountDownTimer(toastDuration.toLong(), 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                initToast(gravity, toastDuration, layout)
+            }
+
+            override fun onFinish() {}
+        }
+
+        initToast(gravity, toastDuration, layout)
+        toastCountDown.start()
+    }else{
+        initToast(gravity, toastDuration, layout)
     }
 }
 
@@ -367,7 +417,7 @@ fun Activity.gdToast(
     textGravity: Int?=null,
     x_Offset: Int = 0,
     y_OffSet: Int = 0,
-    toastDuration:Int = Toast.LENGTH_LONG
+    toastDuration: Int
 
 ) {
 
@@ -404,22 +454,45 @@ fun Activity.gdToast(
 
     messageConstraint(text, message)
     text.text = message
-    var grav:Int = Gravity.CENTER
-    with(Toast(this)) {
-        when {
-            gravity == null -> {
-                grav = Gravity.CENTER
-                setGravity(Gravity.CENTER, x_Offset, y_OffSet)
-            }
-            else ->{
-                grav = gravity
-                setGravity(gravity, x_Offset, y_OffSet)
-                duration = toastDuration
+
+
+
+
+    if (toastDuration != Toast.LENGTH_LONG || toastDuration != Toast.LENGTH_SHORT) {
+        val toastCountDown = object : CountDownTimer(toastDuration.toLong(), 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                initToastX(gravity, x_Offset, y_OffSet, toastDuration, layout)
             }
 
+            override fun onFinish() {}
+        }
+        initToastX(gravity, x_Offset, y_OffSet, toastDuration, layout)
+        toastCountDown.start()
+    }else{
+        initToastX(gravity, x_Offset, y_OffSet, toastDuration, layout)
+    }
+}
+
+private fun Activity.initToastX(
+    gravity: Int?,
+    x_Offset: Int,
+    y_OffSet: Int,
+    toastDuration: Int,
+    layout: View
+) {
+    with(Toast(this)) {
+        when (gravity) {
+            null -> {
+                setGravity(Gravity.CENTER, x_Offset, y_OffSet)
+            }
+            else -> {
+                setGravity(gravity, x_Offset, y_OffSet)
+                duration = toastDuration.toInt()
+            }
         }
 
         view = layout
         show()
     }
 }
+
